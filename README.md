@@ -20,28 +20,26 @@ comment-service: Manages comments
 4. Use an API Gateway (FastAPI or Kong) to unify API requests.
 📌 Deliverable: A microservices-based blogging API with authentication, posts, and comments.
 
-This is the project Structure-blogging-platform-api/
-│
-│ 
+Structure-blogging-platform-api/
 ├── auth-service/
-│   ├── main.py                     # FastAPI app for signup/login/token
-│   ├── models.py                   # SQLAlchemy User model
-│   ├── schemas.py                  # Pydantic models for request/response
-│   ├── crud.py                     # DB CRUD helpers
-│   ├── deps.py                     # DB Session setup also connection
-│   └── .env                        # DB credentials, JWT_SECRET, etc.
+│   ├── main.py             # FastAPI app for signup/login/token
+│   ├── models.py           # SQLAlchemy User model
+│   ├── schemas.py          # Pydantic models for request/response
+│   ├── crud.py             # DB CRUD helpers
+│   ├── deps.py             # DB Session setup, dependencies (like JWT verification)
+│   └── .env                # DB credentials, JWT_SECRET, etc.
 │
 ├── post-service/
-│   ├── main.py                     # FastAPI app for CRUD on posts
-│   ├── models.py                   # SQLAlchemy Post model
-│   ├── schemas.py                  # Pydantic schemas
-│   ├── requirements.txt
-├── comment-service/
-│   ├── main.py                     # FastAPI app for managing comments
-│   ├── models.py                   # Comment model (with post_id, author)
-│   ├── schemas.py                  # CommentCreate, CommentOut, etc.
-│  
+│   ├── main.py             # FastAPI app for CRUD on posts
+│   ├── models.py           # SQLAlchemy Post model
+│   ├── schemas.py          # Pydantic schemas
+│   └── requirements.txt    # Python dependencies for this service
 │
-└── README.md                       # Documentation on how to run everything
-├── main.py                         # auth-service + post-service + comment-service in 1 file
-
+└── comment-service/
+    ├── main.py             # FastAPI app for managing comments
+    ├── models.py           # Comment model (with post_id, author)
+    └── schemas.py          # CommentCreate, CommentOut, etc.
+    
+# Root Level Files
+├── main.py                 # (Likely a project entry point, router, or gateway)
+└── README.md               # Documentation on how to run everything
